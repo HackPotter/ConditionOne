@@ -32,6 +32,7 @@ def schedule(userSchedule, givenDay):
         day = "Sunday"
     else:
         print "Invalid day entered"
+        return
 
     scheduleText.write(day.upper() + "\n")
 
@@ -51,7 +52,7 @@ def schedule(userSchedule, givenDay):
 
 def WriteSchedule(day, textFile): #ONLY WORKS PROPERLY IF THERE ARE NO CONFLICTS
     tracks = "     | 1 | 2 | 3 | 4 |101|"
-    dividingLine = "     |---|---|---|---|---|"
+    dividingLine = "-----|---|---|---|---|---|"
     empty = "|   |   |   |   |   |"
     trackOne = "| X |   |   |   |   |"
     trackTwo = "|   | X |   |   |   |"
