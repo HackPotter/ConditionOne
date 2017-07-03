@@ -10,4 +10,4 @@ ConditionOne scrapes talk information from the DEFCON web page and presents it i
 https://www.defcon.org/html/defcon-25/dc-25-speakers.html
 <h4>DID YOU DOWNLOAD THAT PAGE? YOU SHOULD HAVE.</h4>
 <br>
-ConditionOne is currently in a pre-alpha state, so don't rely on it for anything yet. You can find some more information in the built in "help" function. This readme will be updated once the program is in a state worth calling a beta. 
+ConditionOne is currently in a pre-alpha state, so don't rely on it for anything yet. You can find some more information in the built in "help" function. This readme will be updated once the program is in a state worth calling a beta. In the meantime, if you want to try out ConditionOne, download this repo, navigate to the directory, and run <code>python main.py $PATH/TO/DEFCON_WEBSITE.html</code>
