@@ -1,5 +1,6 @@
 def ShowHelp(userInput):
-    userInput = str(userInput).lstrip("help ") #removes help from beginning of string
+    userInput = str(userInput).replace("help", " ")
+    userInput = str(userInput).lstrip(" ") #removes help from beginning of string
     if userInput == "info": #Show help page for info command
         print "Usage: info [ID]"
         print "Displays basic information about talk with the given ID, with the following format:"

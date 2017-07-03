@@ -44,7 +44,7 @@ print "Please enter a command, or type 'help' for a list of available commands."
 
 #This is where the magic happens
 userInput = raw_input(">") #get input
-while userInput.lower() != "quit" and userInput.lower() != "exit": #Typing 'exit' or 'quit' stops the program
+while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") != "exit": #Typing 'exit' or 'quit' stops the program
     if userInput.lower().__contains__("help"): #Get help
         ConHelp.ShowHelp(userInput.lower())
 
