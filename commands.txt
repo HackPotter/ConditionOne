@@ -1,0 +1,36 @@
+Core features TODO:
+
+help - display list of commands
+help $COMMAND - display more information about a given command
+
+free - show all hour blocks that aren't currently booked
+free $DAY - show all hour blocks in a given day that aren't currently booked
+
+booked - show all hour blocks that are currently booked
+booked $DAY - show all hour blocks in a given day that are currently booked
+
+conflicts - show all blocks with two or more talks scheduled at the same time
+conflicts $DAY - show all blocks in a given day with two or more talks scheduled at the same time
+
+happening $DAY $HOUR - Show all talks happening on a given day at or after a given time
+
+surprise $DAY $HOUR - Picks a random talk for you on a given day
+
+
+Stretch goals TODO:
+
+export / export $DAY - exports whole conference or given day as ICalendar (.ics) file
+
+
+DONE:
+
+info $ID - shows all information (except for description) about a given talk
+describe $ID - shows description for a given talk
+add $ID - adds talk to personal schedule
+remove $ID - removes talk from personal schedule
+schedule $DAY - show grid view of personal schedule for given day
+talks - lists all talks and ID numbers
+
+
+
+schedule - show grid view of personal schedule for whole conference -- NOT HAPPENING
