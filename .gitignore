@@ -1,3 +1,6 @@
 *.idea/
 *.pyc
 *.html
+commands.txt
+ScheduleFormat.txt
+schedule.txt
