@@ -5,6 +5,7 @@ import talk
 import DefconParse
 import ConHelp
 import ConSchedule
+import conflicts
 import os
 import platform
 
@@ -112,6 +113,9 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
         while idNum < len(masterSchedule):
             print str(idNum) + "\t" + str(masterSchedule[idNum].title)
             idNum += 1
+
+    elif userInput.lower()[:9] == "conflicts":
+        conflicts.FindConflicts(userSchedule, True)
 
     elif userInput.lower()[:5] == "about":
         print "ConditionOne is a personal DEFCON scheduling tool written by Jack Potter and licensed under the MIT open source license."
