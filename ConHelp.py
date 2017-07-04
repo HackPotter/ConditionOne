@@ -20,6 +20,7 @@ def ShowHelp(userInput):
     elif userInput == "remove":
         print "Usage: remove [ID]..."
         print "Removes all talks with given IDs from user schedule."
+        print "\"remove all\" is also a valid command, and will remove all talks from user schedule."
         print "If the talk(s) aren't on the user schedule, an error message will result."
 
     elif userInput == "schedule":
@@ -42,11 +43,24 @@ def ShowHelp(userInput):
         print "If \"schedule\" was used to generate \"schedule.txt\", the text file will not be affected."
         print "\"exit\" can be substituted for \"quit\" based on user preference."
 
+    elif userInput == "conflicts":
+        print "Usage: conflicts"
+        print "Checks user schedule for any conflicts, and displays any that are found."
+        print "A conflict is defined as having multiple talks scheduled for the same time on the same day. "
+
     elif userInput == "about":
         print "Usage: about"
         print "Displays basic information about the program."
 
+    elif userInput == "search":
+        print "Usage: search [SEARCH STRING]"
+        print "Displays all talks that have the given search string in their title."
+
+    elif userInput == "clear":
+        print "Usage: clear"
+        print "Clears the screen of all text output."
+
     else:
-        print "Available commands: info, describe, add, remove, schedule, talks, quit, about"
+        print "Available commands: search, info, describe, add, remove, schedule, conflicts, talks, clear, quit, about"
         print "Type help [COMMAND] for help with a specific command"
     return

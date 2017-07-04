@@ -24,7 +24,7 @@ def FindConflicts(givenSchedule, printing):
 
     if conflicts > 0:
         if printing:
-            print "Warning: " + str(conflicts) + " conflicting talks found."
+            print "Warning: " + str(conflicts) + " conflicts found."
             print "\nTime  Day ID  Title"
             conflictingTalks = list(set(conflictingTalks))
             for talk in conflictingTalks:

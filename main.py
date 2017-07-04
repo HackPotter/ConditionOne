@@ -5,6 +5,7 @@ import talk
 import DefconParse
 import ConHelp
 import ConSchedule
+import Search
 import conflicts
 import os
 import platform
@@ -27,7 +28,9 @@ except:
     sys.exit("EXITING WITH ERROR CODE 1:\n"
              "Either no file was given or file was unreadable.\n"
              "ConditionOne must be run in the following way:\n"
-             "python main.py [PATH/TO/DEFCON_WEBSITE.HTML]")
+             "python main.py [PATH/TO/DEFCON_WEBSITE.HTML]\n"
+             "If you don't have the website, download it here:\n"
+             "https://www.defcon.org/html/defcon-25/dc-25-speakers.html")
 
 if DEBUGGING: #PRINT STUFF
     i = 0
@@ -49,7 +52,7 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
     if userInput.lower().__contains__("help"): #Get help
         ConHelp.ShowHelp(userInput.lower())
 
-    elif userInput.lower().__contains__("info"): #Short form info
+    elif userInput.lower()[:4] == "info": #Short form info
         nums = re.findall('\d+', userInput)
         for num in nums:
             if int(num) > masterSchedule.__len__():
@@ -57,7 +60,7 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
                 continue
             masterSchedule[int(num)].ShowInfo()
 
-    elif userInput.lower().__contains__("describe"): #Full Description
+    elif userInput.lower()[:8] == "describe": #Full Description
         nums = re.findall('\d+', userInput)
         for num in nums:
             if int(num) > masterSchedule.__len__():
@@ -65,7 +68,7 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
                 continue
             masterSchedule[int(num)].ShowDescription()
 
-    elif userInput.lower().__contains__("add"): #add talk to schedule by id
+    elif userInput.lower()[:3] == "add": #add talk to schedule by id
         nums = re.findall('\d+', userInput) #get all numbers with regex
         if nums.__len__() == 0:
             print "No talk ID supplied."
@@ -88,10 +91,13 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
             userSchedule.append(talk)
             print "Added talk " + str(num) + " to schedule."
 
-    elif userInput.lower().__contains__("remove"): #Remove talk from schedule by id
+    elif userInput.lower()[:6] == "remove": #Remove talk from schedule by id
         nums = re.findall('\d+', userInput)
         if userSchedule.__len__() == 0:
             print "No talks on schedule to remove."
+        elif userInput.lower().__contains__("all"):
+            userSchedule = []
+            print "All talks removed from schedule."
         elif nums.__len__() == 0:
             print "No talk ID supplied."
         nums = list(set(nums))
@@ -116,8 +122,17 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
             print str(idNum) + "\t" + str(masterSchedule[idNum].title)
             idNum += 1
 
+    elif userInput.lower()[:6] == "search":
+        Search.TalkSearch(userInput, masterSchedule)
+
     elif userInput.lower()[:9] == "conflicts":
         conflicts.FindConflicts(userSchedule, True)
+
+    elif userInput.lower()[:5] == "clear":
+        if platform.system() == "Windows":
+            os.system("cls")  # Clear terminal on windows systems
+        else:
+            os.system("clear")  # Clear terminal on unix systems
 
     elif userInput.lower()[:5] == "about":
         print "ConditionOne is a personal DEFCON scheduling tool written by Jack Potter and licensed under the MIT open source license."
