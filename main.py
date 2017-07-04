@@ -77,6 +77,7 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
             for talk in masterSchedule:
                 if talk.idNum == int(num):
                     validNums.append(num)
+        validNums = list(set(validNums))
         for num in validNums:
             for talk in userSchedule:
                 if talk.idNum == int(num):
@@ -93,6 +94,7 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
             print "No talks on schedule to remove."
         elif nums.__len__() == 0:
             print "No talk ID supplied."
+        nums = list(set(nums))
         for num in nums:
             for talk in userSchedule:
                 if talk.idNum == int(num):
