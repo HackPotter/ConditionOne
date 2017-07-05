@@ -60,7 +60,23 @@ def ShowHelp(userInput):
         print "Usage: clear"
         print "Clears the screen of all text output."
 
+    elif userInput == "outline":
+        print "Usage: outline"
+        print "Displays a simplified outline of all talks on user schedule."
+
+    elif userInput == "happening":
+        print "Usage: happening [DAY] [TIME]"
+        print "Displays all talks happening at a given day and time."
+        print "[DAY] can be entered in several formats (capitalization independent), which are as follows:"
+        print "Thursday: Th, Thurs, Thursday"
+        print "Friday: F, Fri, Friday"
+        print "Saturday: Sat, Saturday"
+        print "Sunday: Sun, Sunday"
+        print "[TIME] can also be entered is several ways."
+        print "For example, \"10\", \"10:00\", and \"1000\" are all valid inputs."
+        print "Remember to use 24-hour time, so 1400 instead of 2."
+
     else:
-        print "Available commands: search, info, describe, add, remove, schedule, conflicts, talks, clear, quit, about"
+        print "Available commands: search, info, describe, add, remove, schedule, outline, conflicts, talks, clear, quit, about"
         print "Type help [COMMAND] for help with a specific command"
     return

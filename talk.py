@@ -12,5 +12,7 @@ class talk:
         print "Talk " + str(self.idNum) + " On " + self.day + " at " + self.time + " in track " + str(self.track) + ": " + self.title
 
     def ShowDescription(self):
-        print self.title
-        print self.description
+        print ""
+        print "Title: " + self.title + "\n"
+        print "Speaker(s): " + self.speakers + "\n"
+        print self.description + "\n"

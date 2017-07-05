@@ -7,6 +7,7 @@ import ConHelp
 import ConSchedule
 import Search
 import conflicts
+import FreeBooked
 import os
 import platform
 
@@ -133,6 +134,21 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
             os.system("cls")  # Clear terminal on windows systems
         else:
             os.system("clear")  # Clear terminal on unix systems
+
+    elif userInput.lower()[:7] == "outline":
+        FreeBooked.Outline(userSchedule)
+
+    elif userInput.lower()[:9] == "happening":
+        try:
+            day = userInput.split(" ")[1]
+            time = userInput.split(" ")[2]
+            try:
+                test = int(day)
+                print "Error: command format is \"happening [DAY] [TIME]\""
+            except:
+                FreeBooked.happening(masterSchedule, day, time)
+        except:
+            print "Error: command format is \"happening [DAY] [TIME]\""
 
     elif userInput.lower()[:5] == "about":
         print "ConditionOne is a personal DEFCON scheduling tool written by Jack Potter and licensed under the MIT open source license."
