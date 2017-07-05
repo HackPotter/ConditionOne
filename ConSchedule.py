@@ -1,4 +1,10 @@
 import talk
+def scheduleAll(userSchedule):
+    schedule(userSchedule, "thursday")
+    schedule(userSchedule, "friday")
+    schedule(userSchedule, "saturday")
+    schedule(userSchedule, "sunday")
+
 def schedule(userSchedule, givenDay):
 
     thursday = []
@@ -17,8 +23,6 @@ def schedule(userSchedule, givenDay):
         elif talk.day == "Sunday":
             sunday.append(talk)
 
-    scheduleText = open("schedule.txt", 'w') #Creates the actual text file
-
     #Standardize day based on input
     day = str(givenDay).lower()
     day = day.strip(" ")
@@ -34,6 +38,7 @@ def schedule(userSchedule, givenDay):
         print "Invalid day entered"
         return
 
+    scheduleText = open(day + ".txt", 'w')  # Creates the actual text file
     scheduleText.write(day.upper() + "\n")
 
     if day == "Thursday":

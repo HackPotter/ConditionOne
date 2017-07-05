@@ -112,11 +112,6 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
             if userSchedule.__len__() > 0:
                 print "Talk " + str(num) + " was not on schedule."
 
-
-    elif userInput.lower()[:8] == "schedule":
-        day = userInput[8:]
-        ConSchedule.schedule(userSchedule, day)
-
     elif userInput.lower()[:5] == "talks":
         idNum = 0
         while idNum < len(masterSchedule):
@@ -149,6 +144,10 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
                 FreeBooked.happening(masterSchedule, day, time)
         except:
             print "Error: command format is \"happening [DAY] [TIME]\""
+
+    elif userInput.lower()[:6] == "export":
+        FreeBooked.export(userSchedule)
+        print "User schedule exported to \"DEFCON 25 Schedule.txt\" in project directory."
 
     elif userInput.lower()[:5] == "about":
         print "ConditionOne is a personal DEFCON scheduling tool written by Jack Potter and licensed under the MIT open source license."

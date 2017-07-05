@@ -1,6 +1,7 @@
 def ShowHelp(userInput):
     userInput = str(userInput).replace("help", " ")
     userInput = str(userInput).lstrip(" ") #removes help from beginning of string
+    userInput = str(userInput).lower() #Makes things easier later
     if userInput == "info": #Show help page for info command
         print "Usage: info [ID]"
         print "Displays basic information about talk with the given ID, with the following format:"
@@ -23,7 +24,7 @@ def ShowHelp(userInput):
         print "\"remove all\" is also a valid command, and will remove all talks from user schedule."
         print "If the talk(s) aren't on the user schedule, an error message will result."
 
-    elif userInput == "schedule":
+    elif userInput == "schedule" and False: #Removed this bit for now since the visual schedule wasn't as good as the outline, imho
         print "Usage: schedule [DAY]"
         print "[DAY] can be entered in several formats (capitalization independent), which are as follows:"
         print "Thursday: Th, Thurs, Thursday"
@@ -32,6 +33,7 @@ def ShowHelp(userInput):
         print "Sunday: Sun, Sunday"
         print "\"schedule [DAY]\" will show you your schedule as a simple grid for a given day."
         print "It will also export that day's schedule as \"schedule.txt\" in the program's directory."
+
 
     elif userInput == "talks":
         print "Usage: talks"
@@ -63,6 +65,12 @@ def ShowHelp(userInput):
     elif userInput == "outline":
         print "Usage: outline"
         print "Displays a simplified outline of all talks on user schedule."
+        print "This outline can be exported with the \"export\" command."
+
+    elif userInput == "export":
+        print "Usage: export"
+        print "Creates a text file with the user schedule outline in the project directory."
+        print "The file will be called \"DEFCON 25 Schedule.txt\" and will be overwritten if export is run again."
 
     elif userInput == "happening":
         print "Usage: happening [DAY] [TIME]"
@@ -77,6 +85,6 @@ def ShowHelp(userInput):
         print "Remember to use 24-hour time, so 1400 instead of 2."
 
     else:
-        print "Available commands: search, info, describe, add, remove, schedule, outline, conflicts, talks, clear, quit, about"
+        print "Available commands: search, info, describe, add, remove, outline, export, conflicts, talks, clear, quit, about"
         print "Type help [COMMAND] for help with a specific command"
     return
