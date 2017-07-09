@@ -61,7 +61,7 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
                 continue
             masterSchedule[int(num)].ShowInfo()
 
-    elif userInput.lower()[:8] == "describe": #Full Description
+    elif userInput.lower()[:8] == "describe" or userInput.lower()[:2] == "d ": #Full Description
         nums = re.findall('\d+', userInput)
         for num in nums:
             if int(num) > masterSchedule.__len__():

@@ -38,7 +38,7 @@ def Outline(userSchedule):
             if time == 0:
                 print str(hour) + ":00\tFree"
             else:
-                print str(hour) + ":00\t" + "Track " + str(time.track) + ", TalkID %03d: " % int(time.idNum) + str(time.title)
+                print str(hour) + ":00\t" + "Track " + "%03d," %int(time.track) + " TalkID %03d: " % int(time.idNum) + str(time.title)
             hour += 1
         print ""
         dayIndex += 1
