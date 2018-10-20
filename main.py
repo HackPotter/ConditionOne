@@ -153,7 +153,7 @@ while userInput.lower().strip(" ") != "quit" and userInput.lower().strip(" ") !=
         print "ConditionOne is a personal DEFCON scheduling tool written by Jack Potter and licensed under the MIT open source license."
         print "It schedules talks that're listed on the website for regular conference times in the regular tracks."
         print "If you'd like to contribute to the development of ConditionOne, swing by " \
-              "github.com/j-potter/ConditionOne and fork the project."
+              "github.com/hackpotter/ConditionOne and fork the project."
         print "Also, thanks to patorjk (patorjk.com) for the ASCII art generator."
         print "Anyway, enjoy DEFCON, and remember the 3-2-1 rule."
 
